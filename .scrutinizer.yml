@@ -1,0 +1,43 @@
+filter:
+    excluded_paths:
+        - 'public/*'
+        - 'vendor/*'
+before_commands:
+    - "composer install"
+    
+build:
+    environment:
+        php:
+            version: 7.1 
+
+checks:
+    php:
+        use_self_instead_of_fqcn: true
+        uppercase_constants: true
+        return_doc_comments: true
+        properties_in_camelcaps: true
+        parameters_in_camelcaps: true
+        parameter_doc_comments: true
+        overriding_parameter: false
+        no_long_variable_names:
+            maximum: '20'
+
+tools:
+    php_mess_detector:
+        config:
+            ruleset: phpmd.xml
+    php_cs_fixer:
+        config: { level: psr2 }
+    php_code_coverage:
+        config:
+            ruleset: phpunit.xml
+    external_code_coverage: true
+            
+build:
+    tests:
+        override:
+            -
+                command: phpunit --coverage-clover=tests/coverage.xml
+                coverage:
+                    file: coverage.xml
+                    format: clover

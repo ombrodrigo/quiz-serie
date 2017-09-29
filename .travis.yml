@@ -1,0 +1,21 @@
+language: php
+
+php:
+  - 7.0
+
+before_script:
+  - composer install
+
+after_script:
+  - php ./vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+
+script:
+  - ./vendor/bin/phpunit -c phpunit.xml
+  - ./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - ./vendor/bin/phpcs -n --standard=phpcs.xml
+  - ./vendor/bin/phpmd src text phpmd.xml
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: $HEROKU_APP_NAME
