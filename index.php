@@ -42,12 +42,10 @@
                     <li><a href="#step-5">Pergunta n° 5</a></li>
                 </ul>
 
-                <div class="col-sm-12">
-
-                <?php foreach ($listaDePerguntasERespostas as $pergunta) {
-                    echo $converterPerguntaHtml->converter($pergunta);
-                } ?>
-
+                <div class="">
+                    <?php foreach ($listaDePerguntasERespostas as $pergunta) {
+                        echo $converterPerguntaHtml->converter($pergunta);
+                    } ?>
                 </div>
             </div>
         </form>

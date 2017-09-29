@@ -25,15 +25,20 @@ class ConverterPerguntaHtml
         return $this->criaPergunta($pergunta);
     }
 
+    /**
+     * Método responsável pro criar o HTML de uma pergunta
+     *
+     * @access private
+     *
+     * @param Array $pergunta pergunta a ser convertida
+     *
+     * @return string
+     */
     private function criaPergunta($pergunta)
     {
         $respostas = $this->criaListaRespostas($pergunta['respostas'], $pergunta['referencia']);
 
-        $html = '<div id="step-@referencia">
-                    <h3>@pergunta</h3>
-                    @respostas
-                </div>';
-
+        $html = '<div id="step-@referencia"><h3>@pergunta</h3>@respostas</div>';
         return str_replace(
             ['@referencia', '@pergunta', '@respostas'],
             [$pergunta['referencia'], $pergunta['pergunta'], $respostas],
@@ -41,19 +46,26 @@ class ConverterPerguntaHtml
         );
     }
 
+    /**
+     * Método responspavel por converter as repostas de uma pergunta para HTML
+     *
+     * @access private
+     *
+     * @access private
+     *
+     * @param Array     $respostas      respostas que serão convertidas
+     * @param Integer   $referencia     referencia da pergunta
+     *
+     * @return string
+     */
     private function criaListaRespostas($respostas, $referencia)
     {
         foreach ($respostas as &$resposta) {
             $resposta = $this->criaRadioButtonResposta($resposta, $referencia);
         }
 
-        $html = '<div id="form-step-@referencia" role="form" data-toggle="validator">
-                    <div class="form-group">
-                        @respostas
-                        <div class="help-block with-errors"></div>
-                    </div>
-                </div>';
-
+        $html = '<div id="form-step-@referencia" role="form" data-toggle="validator">' .
+        '<div class="form-group">@respostas<div class="help-block with-errors"></div></div></div>';
         return str_replace(
             ['@referencia', '@respostas'],
             [$referencia, implode('', $respostas)],
@@ -61,15 +73,20 @@ class ConverterPerguntaHtml
         );
     }
 
-    private function criaRadioButtonResposta($resposta, $referencia)
+    /**
+     * Método responsável por converter uma resposta para HTML
+     *
+     * @access private
+     *
+     * @param \stdClass $resposta       resposta a ser convertida
+     * @param Integer   $referencia     referencia da pergunta
+     *
+     * @return string
+     */
+    private function criaRadioButtonResposta(\StdClass $resposta, $referencia)
     {
-        $html = '<div class="radio">
-                    <label>
-                        <input type="radio" name="pergunta@referencia" value="@resposta">
-                        @pergunta
-                    </label>
-                </div>';
-
+        $html = '<div class="radio">' .
+        '<label><input type="radio" name="pergunta@referencia" value="@resposta">@pergunta</label></div>';
         $respostaArray = (array) $resposta;
 
         return str_replace(
