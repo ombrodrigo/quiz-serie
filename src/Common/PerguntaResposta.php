@@ -25,7 +25,9 @@ class PerguntaResposta
         $conteudoJson = new ConteudoJson();
         $perguntas = $conteudoJson->capturar('perguntas_respostas');
         $perguntas = json_decode($perguntas);
-        return array_map([$this, 'tratarPergunta'], $perguntas);
+        return array_map(function ($pergunta) {
+            return $this->tratarPergunta($pergunta);
+        }, $perguntas);
     }
 
     /**
@@ -33,7 +35,7 @@ class PerguntaResposta
      *
      * @access private
      *
-     * @param StdClass $pergunta pergunta as ser tratada
+     * @param \StdClass $pergunta pergunta as ser tratada
      *
      * @return Array
      */

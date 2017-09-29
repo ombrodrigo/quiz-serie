@@ -69,7 +69,9 @@ class Serie
      */
     private function filtrar($series)
     {
-        return array_values(array_filter($series, [$this, 'checarReferencia']));
+        return array_values(array_filter($series, function ($serie) {
+            return $this->checarReferencia($serie);
+        }));
     }
 
     /**
@@ -77,7 +79,7 @@ class Serie
      *
      * @access private
      *
-     * @param StdClass $serie série a ser testada
+     * @param \StdClass $serie série a ser testada
      *
      * @return Boolean
      */
