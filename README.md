@@ -6,5 +6,20 @@
 
 # Quiz séries
 
+## Perguntas, respostas e séries
+As perguntas, respostas e séries estão divididos em dois arquivos do tipo json:
+* *src/data/series.json* - arquivo com as informações das séries
+* *src/data/perguntas_respostas.json* - arquivo com as perguntas e suas respectivas resposta
+
+## Front-end
+Optei por um layout simples e objetivo, utilizado apenas Bootstrap e o plugin SmartWizard, para criação do form wizard.
+[Link SmartWizard!](https://github.com/techlab/SmartWizard)
+
+
+## Execução
+Clone o projeto para o seu servidor local e acesse a partir da url http://localhost/quiz
+> PHP versão >=5.6.3 
+
+
 ## Demo do projeto
 Versão demo disponível em https://dzestudiotest.herokuapp.com
