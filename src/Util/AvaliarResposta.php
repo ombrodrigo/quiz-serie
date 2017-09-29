@@ -67,7 +67,7 @@ class AvaliarResposta
      * @param String    $resposta   resposta a ser capturado o peso
      * @param Array     $respostas  respostas do quiz
      *
-     * @return Integer
+     * @return integer
      */
     private function maiorPesoResposta($resposta, $respostas)
     {

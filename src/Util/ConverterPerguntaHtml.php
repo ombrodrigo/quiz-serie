@@ -18,7 +18,7 @@ class ConverterPerguntaHtml
      *
      * @param Array $pergunta pergunta a ser convertida
      *
-     * @return Array
+     * @return String
      */
     public function converter($pergunta)
     {
