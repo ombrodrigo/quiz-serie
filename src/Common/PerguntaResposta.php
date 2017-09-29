@@ -35,11 +35,11 @@ class PerguntaResposta
      *
      * @access private
      *
-     * @param \StdClass $pergunta pergunta as ser tratada
+     * @param \stdClass $pergunta pergunta as ser tratada
      *
      * @return Array
      */
-    private function tratarPergunta(\StdClass $pergunta)
+    private function tratarPergunta(\stdClass $pergunta)
     {
         $pergunta = (array) $pergunta;
         $respostas = $pergunta['respostas'];

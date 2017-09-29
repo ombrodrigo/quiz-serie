@@ -79,11 +79,11 @@ class Serie
      *
      * @access private
      *
-     * @param \StdClass $serie série a ser testada
+     * @param \stdClass $serie série a ser testada
      *
      * @return Boolean
      */
-    private function checarReferencia(\StdClass $serie)
+    private function checarReferencia(\stdClass $serie)
     {
         return (strcmp(strtoupper($serie->referencia), strtoupper($this->referencia)) == 0);
     }

@@ -65,7 +65,7 @@ class AvaliarResposta
      * @access private
      *
      * @param String    $resposta   resposta a ser capturado o peso
-     * @param Array     $repostas   respostas do quiz
+     * @param Array     $respostas  respostas do quiz
      *
      * @return Integer
      */
