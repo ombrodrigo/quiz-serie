@@ -6,10 +6,16 @@ before_commands:
     - "composer install"
     
 build:
-    environment:
-        php:
-            version: 7.1 
-
+    nodes:
+        php56:
+            environment:
+                php: 5.6
+        php70:
+            environment:
+                php: 7.0
+        php71:
+            environment:
+                php: 7.1
 checks:
     php:
         use_self_instead_of_fqcn: true
