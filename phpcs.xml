@@ -3,6 +3,9 @@
     <file>src</file>
     <file>tests</file>
 
+    <exclude-pattern>tests/coverage</exclude-pattern>
+    <exclude-pattern>tests/coverage.xml</exclude-pattern>
+
     <description>PSR-2</description>
 
     <rule ref="PSR2">
