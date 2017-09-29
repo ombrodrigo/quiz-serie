@@ -17,8 +17,11 @@ Optei por um layout simples e objetivo, utilizado apenas Bootstrap e o plugin Sm
 
 
 ## Execução
-Clone o projeto para o seu servidor local e acesse a partir da url http://localhost/quiz
-> PHP versão >=5.6.3 
+* Clone o projeto para o seu servidor local e acesse o projeto a partir da url http://localhost/quiz-serie
+* Execute dentro do projeto o comando *composer install*, para realizar o download das dependências
+* Requisitos
+  * Composer
+  * PHP versão >=5.6.3 
 
 
 ## Demo do projeto
