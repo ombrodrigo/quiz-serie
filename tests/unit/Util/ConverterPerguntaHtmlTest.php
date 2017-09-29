@@ -88,7 +88,7 @@ class ConverterPerguntaHtmlTest extends TestCase
     {
         $resposta = (array) $resposta;
         $resultadoEsperado = '<div class="radio">' .
-        '<label><input type="radio" name="pergunta@referencia" value="@resposta">@pergunta</label></div>';
+        '<label><input type="radio" name="pergunta@referencia" value="@resposta" required>@pergunta</label></div>';
         return str_replace(
             ['@referencia', '@resposta', '@pergunta'],
             [$referencia, key($resposta), current($resposta)],

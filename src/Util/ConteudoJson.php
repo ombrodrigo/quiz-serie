@@ -14,7 +14,7 @@ class ConteudoJson
     /**
      * Constante que define o caminho dos arquivo json com os dados
      */
-    const PATH_JSON = 'data/';
+    const PATH_JSON = 'src/data/';
 
     /**
      * Método responsável por capturar o conteúdo de um arquivo Json

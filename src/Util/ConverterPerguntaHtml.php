@@ -86,7 +86,7 @@ class ConverterPerguntaHtml
     private function criaRadioButtonResposta(\StdClass $resposta, $referencia)
     {
         $html = '<div class="radio">' .
-        '<label><input type="radio" name="pergunta@referencia" value="@resposta">@pergunta</label></div>';
+        '<label><input type="radio" name="pergunta@referencia" value="@resposta" required>@pergunta</label></div>';
         $respostaArray = (array) $resposta;
 
         return str_replace(

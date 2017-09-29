@@ -29,7 +29,13 @@
 </head>
 <body>
     <div class="container">
-        <br />
+        <h3>
+            <strong>
+                <span class="text-info">
+                    <img class="img-thumbnail" style="width: 4%" src="assets/images/dz-estudio.png" alt=""/> Quiz - Que série melhor representa você?
+                </span>
+            </strong>
+        </h3>
         <form action="resultado.php" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
 
             <!-- SmartWizard html -->
