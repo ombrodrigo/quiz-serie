@@ -3,6 +3,7 @@
 namespace QuizSerie\Common;
 
 use QuizSerie\Util\ConteudoJson;
+use StdClass;
 
 /**
  * Classe responsável por gerenciar as perguntas e respostas
@@ -35,11 +36,11 @@ class PerguntaResposta
      *
      * @access private
      *
-     * @param \stdClass $pergunta pergunta as ser tratada
+     * @param \StdClass $pergunta pergunta as ser tratada
      *
      * @return Array
      */
-    private function tratarPergunta(\stdClass $pergunta)
+    private function tratarPergunta(StdClass $pergunta)
     {
         $pergunta = (array) $pergunta;
         $respostas = $pergunta['respostas'];

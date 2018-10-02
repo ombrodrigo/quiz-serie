@@ -2,6 +2,8 @@
 
 namespace QuizSerie\Util;
 
+use StdClass;
+
 /**
  * Classe responsável por converter uma pergunta para HTML
  *
@@ -78,12 +80,12 @@ class ConverterPerguntaHtml
      *
      * @access private
      *
-     * @param \stdClass $resposta       resposta a ser convertida
+     * @param \StdClass $resposta       resposta a ser convertida
      * @param Integer   $referencia     referencia da pergunta
      *
      * @return string
      */
-    private function criaRadioButtonResposta(\StdClass $resposta, $referencia)
+    private function criaRadioButtonResposta(StdClass $resposta, $referencia)
     {
         $html = '<div class="radio">' .
         '<label><input type="radio" name="pergunta@referencia" value="@resposta" required>@pergunta</label></div>';

@@ -3,6 +3,7 @@
 namespace QuizSerie\Tests\Unit\Common;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 use QuizSerie\Common\PerguntaResposta;
 use QuizSerie\Util\ConteudoJson;
 
@@ -30,7 +31,7 @@ class PerguntaRespostaTest extends TestCase
         $perguntasRespostas = current($perguntasRespostas);
         $this->assertInstanceOf('StdClass', $perguntasRespostas);
 
-        $reflectionMethod  = new \ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'tratarPergunta');
+        $reflectionMethod  = new ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'tratarPergunta');
         $reflectionMethod->setAccessible(true);
 
         $respostaTratada = $reflectionMethod->invokeArgs($this->class, array($perguntasRespostas));
@@ -46,7 +47,7 @@ class PerguntaRespostaTest extends TestCase
         $primeiraPerguntaRespostas          = $primeiraPergunta['respostas'];
         $primeiraPerguntaRespostasComparar  = $primeiraPerguntaRespostas;
 
-        $reflectionMethod  = new \ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'embaralharRespostas');
+        $reflectionMethod  = new ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'embaralharRespostas');
         $reflectionMethod->setAccessible(true);
         $this->assertNotEquals(
             $primeiraPerguntaRespostasComparar,

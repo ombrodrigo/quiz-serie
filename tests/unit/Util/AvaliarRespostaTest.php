@@ -3,6 +3,7 @@
 namespace QuizSerie\Tests\Unit\Util;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 use QuizSerie\Util\AvaliarResposta;
 
 class AvaliarRespostaTest extends TestCase
@@ -40,7 +41,7 @@ class AvaliarRespostaTest extends TestCase
 
     public function testMaiorPesoResposta()
     {
-        $maiorPesoRespostaMethod = new \ReflectionMethod('\\QuizSerie\\Util\\AvaliarResposta', 'maiorPesoResposta');
+        $maiorPesoRespostaMethod = new ReflectionMethod('\\QuizSerie\\Util\\AvaliarResposta', 'maiorPesoResposta');
         $maiorPesoRespostaMethod->setAccessible(true);
 
         $respostas = ['e', 'c', 'a', 'c', 'e'];
