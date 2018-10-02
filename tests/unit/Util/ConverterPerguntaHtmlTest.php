@@ -3,6 +3,7 @@
 namespace QuizSerie\Tests\Unit\Util;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 use QuizSerie\Util\ConverterPerguntaHtml;
 use QuizSerie\Util\ConteudoJson;
 
@@ -33,7 +34,7 @@ class ConverterPerguntaHtmlTest extends TestCase
         $resposta           = end($respostas);
         $resultadoEsperado  = $this->criaRespostaEsperada($resposta, $referencia);
 
-        $reflectionMethod = new \ReflectionMethod(
+        $reflectionMethod = new ReflectionMethod(
             '\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaRadioButtonResposta');
         $reflectionMethod->setAccessible(true);
         $resultado = $reflectionMethod->invokeArgs($this->class, array((object) $resposta, $referencia));
@@ -51,7 +52,7 @@ class ConverterPerguntaHtmlTest extends TestCase
         $respostas          = $perguntaResposta->respostas;
         $resultadoEsperado  = $this->criaListaRespostaEsperada($respostas, $referencia);
 
-        $reflectionMethod = new \ReflectionMethod('\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaListaRespostas');
+        $reflectionMethod = new ReflectionMethod('\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaListaRespostas');
         $reflectionMethod->setAccessible(true);
         $resultado = $reflectionMethod->invokeArgs($this->class, array($respostas, $referencia));
 
@@ -66,7 +67,7 @@ class ConverterPerguntaHtmlTest extends TestCase
         $perguntaResposta   = (array) current($perguntasRespostas);
         $resultadoEsperado  = $this->criaPerguntaEsperada($perguntaResposta);
 
-        $reflectionMethod = new \ReflectionMethod('\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaPergunta');
+        $reflectionMethod = new ReflectionMethod('\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaPergunta');
         $reflectionMethod->setAccessible(true);
         $resultado = $reflectionMethod->invokeArgs($this->class, array($perguntaResposta));
 

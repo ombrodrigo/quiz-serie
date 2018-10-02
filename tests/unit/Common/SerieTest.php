@@ -3,6 +3,7 @@
 namespace QuizSerie\Tests\Unit\Common;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 use QuizSerie\Common\Serie;
 use QuizSerie\Util\ConteudoJson;
 
@@ -40,7 +41,7 @@ class SerieTest extends TestCase
     {
         $serie = current($series);
 
-        $reflectionClass = new \ReflectionClass($this->class);
+        $reflectionClass = new ReflectionClass($this->class);
 
         $referenciaProperty = $reflectionClass->getProperty('referencia');
         $referenciaProperty->setAccessible(true);
@@ -62,7 +63,7 @@ class SerieTest extends TestCase
      */
     public function testFiltrar($series)
     {
-        $reflectionClass = new \ReflectionClass($this->class);
+        $reflectionClass = new ReflectionClass($this->class);
 
         $referenciaProperty = $reflectionClass->getProperty('referencia');
         $referenciaProperty->setAccessible(true);
