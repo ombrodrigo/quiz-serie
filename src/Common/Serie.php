@@ -14,6 +14,15 @@ use QuizSerie\Util\ConteudoJson;
 class Serie
 {
     /**
+     * Atributo que mantem o nome do arquivo json com os dados
+     *
+     * @access private
+     *
+     * @var  String
+     */
+    private $jsonFile = 'series';
+
+    /**
      * Atributo que ira receber a referencia a ser utilizada no momento de uma pesquisa
      *
      * @access private
@@ -32,8 +41,13 @@ class Serie
     public function listar()
     {
         $conteudoJson = new ConteudoJson();
-        $series = $conteudoJson->capturar('series');
-        return json_decode($series);
+        $series = $conteudoJson->capturar($this->jsonFile);
+
+        if ($series) {
+            return json_decode($series);
+        }
+
+        return [];
     }
 
     /**

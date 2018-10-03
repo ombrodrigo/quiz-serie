@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use QuizSerie\Common\Serie;
 use QuizSerie\Util\ConteudoJson;
+use ReflectionProperty;
 
 class SerieTest extends TestCase
 {
@@ -91,5 +92,13 @@ class SerieTest extends TestCase
         $serieComparar      = end($series);
         $resultadoPesquisa  = $this->class->pesquisarPorReferencia('e');
         $this->assertEquals($serieComparar, $resultadoPesquisa);
+    }
+
+    public function testPesquisarPorReferenciaNulo()
+    {
+        $jsonFile = new ReflectionProperty($this->class, 'jsonFile');
+        $jsonFile->setAccessible(true);
+        $jsonFile->setValue($this->class, 'empty');
+        $this->assertEmpty($this->class->pesquisarPorReferencia('e'));
     }
 }
