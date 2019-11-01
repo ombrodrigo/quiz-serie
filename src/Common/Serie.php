@@ -61,9 +61,9 @@ class Serie
      */
     public function pesquisarPorReferencia($referencia)
     {
-        $series             = $this->listar();
-        $this->referencia   = $referencia;
-        $serie              = $this->filtrar($series);
+        $series = $this->listar();
+        $this->referencia = $referencia;
+        $serie = $this->filtrar($series);
 
         if (!array_key_exists(0, $serie)) {
             return null;

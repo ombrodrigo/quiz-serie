@@ -2,13 +2,13 @@
 
     require_once "vendor/autoload.php";
 
-    $resultadoQuiz          = new QuizSerie\Common\ResultadoQuiz();
-    $post                   = $_POST;
-    $serieMelhorRepresenta  = null;
+    $resultadoQuiz = new QuizSerie\Common\ResultadoQuiz();
+    $post = $_POST;
+    $serieMelhorRepresenta = null;
 
     if (!empty($post) || (count($post) == 5)) {
-        $respostas              = array_values($post);
-        $serieMelhorRepresenta  = $resultadoQuiz->avaliarRespostas($respostas);
+        $respostas = array_values($post);
+        $serieMelhorRepresenta = $resultadoQuiz->avaliarRespostas($respostas);
     }
 ?>
 <!DOCTYPE html>

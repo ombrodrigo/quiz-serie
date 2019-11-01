@@ -42,8 +42,16 @@ class ConverterPerguntaHtml
 
         $html = '<div id="step-@referencia"><h3>@pergunta</h3>@respostas</div>';
         return str_replace(
-            ['@referencia', '@pergunta', '@respostas'],
-            [$pergunta['referencia'], $pergunta['pergunta'], $respostas],
+            [
+                '@referencia',
+                '@pergunta',
+                '@respostas'
+            ],
+            [
+                $pergunta['referencia'],
+                $pergunta['pergunta'],
+                $respostas
+            ],
             $html
         );
     }
@@ -69,8 +77,14 @@ class ConverterPerguntaHtml
         $html = '<div id="form-step-@referencia" role="form" data-toggle="validator">' .
         '<div class="form-group">@respostas<div class="help-block with-errors"></div></div></div>';
         return str_replace(
-            ['@referencia', '@respostas'],
-            [$referencia, implode('', $respostas)],
+            [
+                '@referencia',
+                '@respostas'
+            ],
+            [
+                $referencia,
+                implode('', $respostas)
+            ],
             $html
         );
     }
@@ -92,8 +106,16 @@ class ConverterPerguntaHtml
         $respostaArray = (array) $resposta;
 
         return str_replace(
-            ['@referencia', '@resposta', '@pergunta'],
-            [$referencia, key($respostaArray), current($respostaArray)],
+            [
+                '@referencia',
+                '@resposta',
+                '@pergunta'
+            ],
+            [
+                $referencia,
+                key($respostaArray),
+                current($respostaArray)
+            ],
             $html
         );
     }

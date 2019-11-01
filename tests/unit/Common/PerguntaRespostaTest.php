@@ -18,8 +18,8 @@ class PerguntaRespostaTest extends TestCase
 
     public function perguntasRespostasProvider()
     {
-        $conteudoJson   = new ConteudoJson();
-        $conteudo       = $conteudoJson->capturar('perguntas_respostas');
+        $conteudoJson = new ConteudoJson();
+        $conteudo = $conteudoJson->capturar('perguntas_respostas');
         return [[json_decode($conteudo)]];
     }
 
@@ -31,7 +31,7 @@ class PerguntaRespostaTest extends TestCase
         $perguntasRespostas = current($perguntasRespostas);
         $this->assertInstanceOf('StdClass', $perguntasRespostas);
 
-        $reflectionMethod  = new ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'tratarPergunta');
+        $reflectionMethod = new ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'tratarPergunta');
         $reflectionMethod->setAccessible(true);
 
         $respostaTratada = $reflectionMethod->invokeArgs($this->class, array($perguntasRespostas));
@@ -43,11 +43,11 @@ class PerguntaRespostaTest extends TestCase
      */
     public function testEmbaralharResposta($perguntasRespostas)
     {
-        $primeiraPergunta                   = (array) current($perguntasRespostas);
-        $primeiraPerguntaRespostas          = $primeiraPergunta['respostas'];
-        $primeiraPerguntaRespostasComparar  = $primeiraPerguntaRespostas;
+        $primeiraPergunta = (array) current($perguntasRespostas);
+        $primeiraPerguntaRespostas = $primeiraPergunta['respostas'];
+        $primeiraPerguntaRespostasComparar = $primeiraPerguntaRespostas;
 
-        $reflectionMethod  = new ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'embaralharRespostas');
+        $reflectionMethod = new ReflectionMethod('\\QuizSerie\\Common\\PerguntaResposta', 'embaralharRespostas');
         $reflectionMethod->setAccessible(true);
         $this->assertNotEquals(
             $primeiraPerguntaRespostasComparar,

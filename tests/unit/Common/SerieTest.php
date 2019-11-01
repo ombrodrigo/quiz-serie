@@ -19,8 +19,8 @@ class SerieTest extends TestCase
 
     public function seriesProvider()
     {
-        $conteudoJson   = new ConteudoJson();
-        $conteudo       = $conteudoJson->capturar('series');
+        $conteudoJson = new ConteudoJson();
+        $conteudo = $conteudoJson->capturar('series');
         return [[json_decode($conteudo)]];
     }
 
@@ -29,8 +29,8 @@ class SerieTest extends TestCase
      */
     public function testListar($seriesComparar)
     {
-        $serieComparar      = current($seriesComparar);
-        $series             = $this->class->listar();
+        $serieComparar = current($seriesComparar);
+        $series = $this->class->listar();
         $primeiraSerieLista = current($series);
         $this->assertEquals($serieComparar, $primeiraSerieLista);
     }
@@ -79,8 +79,8 @@ class SerieTest extends TestCase
         $this->assertArrayHasKey(0, $resultadoSerieD);
         $this->assertArrayNotHasKey(1, $resultadoSerieD);
 
-        $resultadoSerieD    = current($resultadoSerieD);
-        $serieComparar      = $series[3];
+        $resultadoSerieD = current($resultadoSerieD);
+        $serieComparar = $series[3];
         $this->assertEquals($serieComparar, $resultadoSerieD);
     }
 
@@ -89,8 +89,8 @@ class SerieTest extends TestCase
      */
     public function testPesquisarPorReferencia($series)
     {
-        $serieComparar      = end($series);
-        $resultadoPesquisa  = $this->class->pesquisarPorReferencia('e');
+        $serieComparar = end($series);
+        $resultadoPesquisa = $this->class->pesquisarPorReferencia('e');
         $this->assertEquals($serieComparar, $resultadoPesquisa);
     }
 

@@ -2,10 +2,9 @@
 
     require_once "vendor/autoload.php";
 
-    $perguntasERespostas    = new QuizSerie\Common\PerguntaResposta();
-    $converterPerguntaHtml  = new QuizSerie\Util\ConverterPerguntaHtml();
+    $perguntasERespostas = new QuizSerie\Common\PerguntaResposta();
+    $converterPerguntaHtml = new QuizSerie\Util\ConverterPerguntaHtml();
     $listaDePerguntasERespostas = $perguntasERespostas->listar();
-
 ?>
 
 <!DOCTYPE html>
