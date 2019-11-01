@@ -12,45 +12,45 @@ class DzTesteAceitacaoTest extends TestCase
 
     public function setUp()
     {
-        $this->class  = new ResultadoQuiz();
+        $this->class = new ResultadoQuiz();
     }
 
     public function testTeste1()
     {
-        $respostas          = ['c', 'c', 'a', 'e', 'e'];
-        $resultadoEsperado  = 'Silicon Valley';
+        $respostas = ['c', 'c', 'a', 'e', 'e'];
+        $resultadoEsperado = 'Silicon Valley';
         $resultado = $this->class->avaliarRespostas($respostas);
         $this->assertEquals($resultadoEsperado, $resultado['serie']);
     }
 
     public function testTeste2()
     {
-        $respostas          = ['E', 'e', 'a', 'C', 'c'];
-        $resultadoEsperado  = 'Lost';
+        $respostas = ['E', 'e', 'a', 'C', 'c'];
+        $resultadoEsperado = 'Lost';
         $resultado = $this->class->avaliarRespostas($respostas);
         $this->assertEquals($resultadoEsperado, $resultado['serie']);
     }
 
     public function testTeste3()
     {
-        $respostas          = ['E', 'D', 'C', 'B', 'a'];
-        $resultadoEsperado  = 'House of Cards';
+        $respostas = ['E', 'D', 'C', 'B', 'a'];
+        $resultadoEsperado = 'House of Cards';
         $resultado = $this->class->avaliarRespostas($respostas);
         $this->assertEquals($resultadoEsperado, $resultado['serie']);
     }
 
     public function testTeste4()
     {
-        $respostas          = ['A', 'b', 'C', 'd', 'E'];
-        $resultadoEsperado  = 'Silicon Valley';
+        $respostas = ['A', 'b', 'C', 'd', 'E'];
+        $resultadoEsperado = 'Silicon Valley';
         $resultado = $this->class->avaliarRespostas($respostas);
         $this->assertEquals($resultadoEsperado, $resultado['serie']);
     }
 
     public function testTeste5()
     {
-        $respostas          = ['A', 'A', 'A', 'B', 'B'];
-        $resultadoEsperado  = 'House of Cards';
+        $respostas = ['A', 'A', 'A', 'B', 'B'];
+        $resultadoEsperado = 'House of Cards';
         $resultado = $this->class->avaliarRespostas($respostas);
         $this->assertEquals($resultadoEsperado, $resultado['serie']);
     }

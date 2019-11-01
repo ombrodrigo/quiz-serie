@@ -18,8 +18,8 @@ class ConverterPerguntaHtmlTest extends TestCase
 
     public function perguntasRespostasProvider()
     {
-        $conteudoJson   = new ConteudoJson();
-        $conteudo       = $conteudoJson->capturar('perguntas_respostas');
+        $conteudoJson = new ConteudoJson();
+        $conteudo = $conteudoJson->capturar('perguntas_respostas');
         return [[json_decode($conteudo)]];
     }
 
@@ -28,11 +28,11 @@ class ConverterPerguntaHtmlTest extends TestCase
      */
     public function testCriaRadioButtonResposta($perguntasRespostas)
     {
-        $perguntaResposta   = current($perguntasRespostas);
-        $referencia         = $perguntaResposta->referencia;
-        $respostas          = $perguntaResposta->respostas;
-        $resposta           = end($respostas);
-        $resultadoEsperado  = $this->criaRespostaEsperada($resposta, $referencia);
+        $perguntaResposta = current($perguntasRespostas);
+        $referencia = $perguntaResposta->referencia;
+        $respostas = $perguntaResposta->respostas;
+        $resposta = end($respostas);
+        $resultadoEsperado = $this->criaRespostaEsperada($resposta, $referencia);
 
         $reflectionMethod = new ReflectionMethod(
             '\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaRadioButtonResposta');
@@ -47,10 +47,10 @@ class ConverterPerguntaHtmlTest extends TestCase
      */
     public function testListaRespostas($perguntasRespostas)
     {
-        $perguntaResposta   = current($perguntasRespostas);
-        $referencia         = $perguntaResposta->referencia;
-        $respostas          = $perguntaResposta->respostas;
-        $resultadoEsperado  = $this->criaListaRespostaEsperada($respostas, $referencia);
+        $perguntaResposta = current($perguntasRespostas);
+        $referencia = $perguntaResposta->referencia;
+        $respostas = $perguntaResposta->respostas;
+        $resultadoEsperado = $this->criaListaRespostaEsperada($respostas, $referencia);
 
         $reflectionMethod = new ReflectionMethod('\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaListaRespostas');
         $reflectionMethod->setAccessible(true);
@@ -64,8 +64,8 @@ class ConverterPerguntaHtmlTest extends TestCase
      */
     public function testCriaPergunta($perguntasRespostas)
     {
-        $perguntaResposta   = (array) current($perguntasRespostas);
-        $resultadoEsperado  = $this->criaPerguntaEsperada($perguntaResposta);
+        $perguntaResposta = (array) current($perguntasRespostas);
+        $resultadoEsperado = $this->criaPerguntaEsperada($perguntaResposta);
 
         $reflectionMethod = new ReflectionMethod('\\QuizSerie\\Util\\ConverterPerguntaHtml', 'criaPergunta');
         $reflectionMethod->setAccessible(true);
@@ -79,9 +79,9 @@ class ConverterPerguntaHtmlTest extends TestCase
      */
     public function testConverter($perguntasRespostas)
     {
-        $perguntaResposta   = (array) current($perguntasRespostas);
-        $resultadoEsperado  = $this->criaPerguntaEsperada($perguntaResposta);
-        $resultado          = $this->class->converter($perguntaResposta);
+        $perguntaResposta = (array) current($perguntasRespostas);
+        $resultadoEsperado = $this->criaPerguntaEsperada($perguntaResposta);
+        $resultado = $this->class->converter($perguntaResposta);
         $this->assertEquals($resultadoEsperado, $resultado);
     }
 
@@ -91,8 +91,16 @@ class ConverterPerguntaHtmlTest extends TestCase
         $resultadoEsperado = '<div class="radio">' .
         '<label><input type="radio" name="pergunta@referencia" value="@resposta" required>@pergunta</label></div>';
         return str_replace(
-            ['@referencia', '@resposta', '@pergunta'],
-            [$referencia, key($resposta), current($resposta)],
+            [
+                '@referencia',
+                '@resposta',
+                '@pergunta'
+            ],
+            [
+                $referencia,
+                key($resposta),
+                current($resposta)
+            ],
             $resultadoEsperado
         );
     }
@@ -106,8 +114,14 @@ class ConverterPerguntaHtmlTest extends TestCase
         $html = '<div id="form-step-@referencia" role="form" data-toggle="validator">' .
         '<div class="form-group">@respostas<div class="help-block with-errors"></div></div></div>';
         return str_replace(
-            ['@referencia', '@respostas'],
-            [$referencia, implode('', $respostas)],
+            [
+                '@referencia',
+                '@respostas'
+            ],
+            [
+                $referencia,
+                implode('', $respostas)
+            ],
             $html
         );
     }
@@ -117,8 +131,16 @@ class ConverterPerguntaHtmlTest extends TestCase
         $respostas = $this->criaListaRespostaEsperada($pergunta['respostas'], $pergunta['referencia']);
         $html = '<div id="step-@referencia"><h3>@pergunta</h3>@respostas</div>';
         return str_replace(
-            ['@referencia', '@pergunta', '@respostas'],
-            [$pergunta['referencia'], $pergunta['pergunta'], $respostas],
+            [
+                '@referencia',
+                '@pergunta',
+                '@respostas'
+            ],
+            [
+                $pergunta['referencia'],
+                $pergunta['pergunta'],
+                $respostas
+            ],
             $html
         );
     }

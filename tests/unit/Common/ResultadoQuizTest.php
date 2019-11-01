@@ -8,13 +8,13 @@ use QuizSerie\Common\Serie;
 
 class ResultadoQuizTest extends TestCase
 {
-    private $class  = null;
+    private $class = null;
     private $series = null;
 
     public function setUp()
     {
-        $this->class    = new ResultadoQuiz();
-        $this->series   = new Serie();
+        $this->class = new ResultadoQuiz();
+        $this->series = new Serie();
     }
 
     public function testAvaliarRespostas()

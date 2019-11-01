@@ -22,8 +22,8 @@ class AvaliarResposta
      */
     public function maiorNumeroOcorrencia($respostas)
     {
-        $agrupaRespostas                    = array_count_values($respostas);
-        $maiorNumeroOcorrencias             = max($agrupaRespostas);
+        $agrupaRespostas = array_count_values($respostas);
+        $maiorNumeroOcorrencias = max($agrupaRespostas);
         $respostasComMaiorNumeroOcorrencias = [];
 
         foreach ($agrupaRespostas as $resposta => $ocorrencia) {
@@ -49,7 +49,7 @@ class AvaliarResposta
     public function maiorPeso($respostas)
     {
         $respostasComMaiorNumeroOcorrencias = array_keys($this->maiorNumeroOcorrencia($respostas));
-        $respostasEPesos                    = [];
+        $respostasEPesos = [];
 
         foreach ($respostasComMaiorNumeroOcorrencias as $resposta) {
             $respostasEPesos[$resposta] = $this->maiorPesoResposta($resposta, $respostas);

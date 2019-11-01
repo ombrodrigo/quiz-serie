@@ -32,8 +32,8 @@ class ResultadoQuiz
             return $this->serieCorrespondenteAoResultado($respostaComMaiorNumeroDeOcorrencias);
         }
 
-        $respostasComMaiorPeso  = $avaliarResposta->maiorPeso($respostas);
-        $respostaComMaiorPeso   = array_slice($respostasComMaiorPeso, 0, 1);
+        $respostasComMaiorPeso = $avaliarResposta->maiorPeso($respostas);
+        $respostaComMaiorPeso = array_slice($respostasComMaiorPeso, 0, 1);
         return $this->serieCorrespondenteAoResultado($respostaComMaiorPeso);
     }
 
@@ -49,8 +49,8 @@ class ResultadoQuiz
      */
     private function serieCorrespondenteAoResultado($resultadoQuiz)
     {
-        $referenciaSerie    = key($resultadoQuiz);
-        $series             = new Serie();
+        $referenciaSerie = key($resultadoQuiz);
+        $series = new Serie();
         return (array) $series->pesquisarPorReferencia($referenciaSerie);
     }
 }
